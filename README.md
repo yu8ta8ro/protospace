@@ -1,70 +1,82 @@
 == README
-#Name
+# Name
 protospace
 
 ##Description
 You can post messages with your images. You can also write down some comments to messages posted by others.
 What's more,you have your own account, which enable you to fomulate your messages posted.
 
-###Association
-+tweet has many images
-+tweet has many comments
-+tweets belong to user
+### Association
++prototype has many images
++prototype has many comments
++prototypes belong to user
 
-+images belong to tweet
++images belong to prototype
 
-+comments belong to tweet
++comments belong to prototype
 
-+user has many tweets
++user has many prototypes
 
-###Table
-+tweets
+### Table
++prototypes
 +images
 +users
 +comments
 
-###Culumn
-+tweets
+### Culumn
++prototypes
  -catch_copy
  -concept
  -title
- -image_id
+ -user_id
 
 +images
- -image_url
- -tweet_id
+ -main_image
+ -sub_image
+ -prototype_id
 
 +users
- -user_name
+ -username
+ -email
+ -password
  -member
+ -profile
+ -work
 
 +comments
  -text
- -tweet_id
+ -prototype_id
 
-###Column type
+### Column type
 +catch_copy
  -text
 +concept
  -text
 +title
  -text
-+image_id
++user_id
  -integer
 
 +image_url
  -text
-+tweet_id
++prototype_id
  -integer
 
-+user_name
++username
+ -string
++password
  -string
 +member
  -string
++profile
+ -text
++work
+ -string
+
 
 +text
  -text
-+tweet_id
++prototype_id
  -integer
 
 
