@@ -2,7 +2,7 @@
 # Name
 protospace
 
-##Description
+## Description
 You can post messages with your images. You can also write down some comments to messages posted by others.
 What's more,you have your own account, which enable you to fomulate your messages posted.
 
@@ -17,11 +17,15 @@ What's more,you have your own account, which enable you to fomulate your message
 
 +user has many prototypes
 
++likes belong to protorype
++likes belong to user
+
 ### Table
 +prototypes
 +images
 +users
 +comments
++likes
 
 ### Culumn
 +prototypes
@@ -31,21 +35,26 @@ What's more,you have your own account, which enable you to fomulate your message
  -user_id
 
 +images
- -main_image
- -sub_image
+ -image
+ -image_type
  -prototype_id
 
 +users
- -username
+ -name
  -email
  -password
  -member
  -profile
  -work
+ -user_image
 
 +comments
  -text
  -prototype_id
+
++likes
+ -prototype_id
+ -user_id
 
 ### Column type
 +catch_copy
@@ -62,7 +71,7 @@ What's more,you have your own account, which enable you to fomulate your message
 +prototype_id
  -integer
 
-+username
++name
  -string
 +password
  -string
@@ -72,11 +81,17 @@ What's more,you have your own account, which enable you to fomulate your message
  -text
 +work
  -string
-
++user_image
+ -text
 
 +text
  -text
 +prototype_id
+ -integer
+
++prototype_id
+ -integer
++user_id
  -integer
 
 
