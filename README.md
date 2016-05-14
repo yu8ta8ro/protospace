@@ -6,20 +6,6 @@ protospace
 You can post messages with your images. You can also write down some comments to messages posted by others.
 What's more,you have your own account, which enable you to fomulate your messages posted.
 
-### Association
-+prototype has many images
-+prototype has many comments
-+prototypes belong to user
-
-+images belong to prototype
-
-+comments belong to prototype
-
-+user has many prototypes
-
-+likes belong to protorype
-+likes belong to user
-
 ### Table
 +prototypes
 +images
@@ -27,72 +13,47 @@ What's more,you have your own account, which enable you to fomulate your message
 +comments
 +likes
 
-### Culumn
-+prototypes
- -catch_copy
- -concept
- -title
- -user_id
+### Association
++prototype:
+ -has many images
+ -has many comments
+ -belongs to user
 
-+images
- -image
- -image_type
- -prototype_id
++image:
+ -belongs to prototype
 
-+users
- -name
- -email
- -password
- -member
- -profile
- -work
- -user_image
++comment:
+ -belongs to prototype
 
-+comments
- -text
- -prototype_id
++user:
+ -has many prototypes
 
-+likes
- -prototype_id
- -user_id
++likes:
+ -belongs to protorype
+ -belongs to user
 
-### Column type
-+catch_copy
- -text
-+concept
- -text
-+title
- -text
-+user_id
- -integer
+### Culumns
+#### prototype
+|id     |catch_copy|concept|title|user_id|
+|-------|----------|-------|-----|-------|
+|integer|text      |text   |text |integer|
 
-+image_url
- -text
-+prototype_id
- -integer
+#### prototype_image
+|id     |content|content_type|prototype_id|
+|-------|-------|------------|------------|
+|integer|text   |integer     |integer     |
 
-+name
- -string
-+password
- -string
-+member
- -string
-+profile
- -text
-+work
- -string
-+user_image
- -text
+#### user
+|id     |name  |email|password|member|profile|work  |user_image_content|
+|-------|------|-----|--------|------|-------|------|------------------|
+|integer|string|text |text    |text  |text   |string|text              |
 
-+text
- -text
-+prototype_id
- -integer
+#### comment
+|id     |comment_text|prototype_id|
+|-------|------------|------------|
+|integer|text        |integer     |
 
-+prototype_id
- -integer
-+user_id
- -integer
-
-
-
+#### like
+|id     |prototype_id|user_id|
+|-------|------------|-------|
+|integer|integer     |integer|
