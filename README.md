@@ -1,4 +1,3 @@
-== README
 # Name
 protospace
 
@@ -7,30 +6,30 @@ You can post messages with your images. You can also write down some comments to
 What's more,you have your own account, which enable you to fomulate your messages posted.
 
 ### Table
-+prototypes
-+images
-+users
-+comments
-+likes
++ prototypes
++ images
++ users
++ comments
++ likes
 
 ### Association
-+prototype:
- -has many images
- -has many comments
- -belongs to user
++ prototype:
+ - has many images
+ - has many comments
+ - belongs to user
 
-+image:
- -belongs to prototype
++ image:
+ - belongs to prototype
 
-+comment:
- -belongs to prototype
++ comment:
+ - belongs to prototype
 
-+user:
- -has many prototypes
++ user:
+ - has many prototypes
 
-+likes:
- -belongs to protorype
- -belongs to user
++ likes:
+ - belongs to protorype
+ - belongs to user
 
 ### Culumns
 #### prototype
@@ -44,9 +43,9 @@ What's more,you have your own account, which enable you to fomulate your message
 |integer|text   |integer     |integer     |
 
 #### user
-|id     |name  |email|password|member|profile|work  |user_image_content|
-|-------|------|-----|--------|------|-------|------|------------------|
-|integer|string|text |text    |text  |text   |string|text              |
+|id     |name  |email|password|member|profile|work  |avatar|
+|-------|------|-----|--------|------|-------|------|------|
+|integer|string|text |text    |text  |text   |string|text  |
 
 #### comment
 |id     |comment_text|prototype_id|
