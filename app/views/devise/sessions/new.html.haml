@@ -1,21 +1,13 @@
 .container
   %form.form-signin
-    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { method: :get }) do |f|
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       %h2.form-signin-heading Please sign in
       %label.sr-only{for: "inputEmail"} Email address
-      / %input#inputEmail.form-control{autofocus: "", placeholder: "Email address", required: "", type: "email"}/
-      .form-control
-        = f.text_field :email, autofucus: true, :placeholder => "Email address"
+      = f.text_field :email, autofucus: true, placeholder: "Email address", class: "form-control"
       %label.sr-only{for: "inputPassword"} Password
-      .form-control
-        = f.text_field :password, autofucus: true, :placeholder => "Password"
-      / %input#inputPassword.form-control{placeholder: "Password", required: "", type: "password"}/
+      = f.text_field :password, autofucus: true, placeholder: "Password", class: "form-control"
       .checkbox
-        %label
-          / %input{type: "checkbox", value: "remember-me"}/
-          / = f.check_box 'remember-me'
-      %button.btn.btn-lg.btn-primary.btn-block
-        = f.submit "Sign in"
+      = f.submit "Sign in", data: { disable_with: "送信中..." }, class: "button btn btn-lg btn-primary btn-block"
     .text-center
       %p
         Not a member?
