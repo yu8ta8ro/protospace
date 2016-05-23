@@ -11,8 +11,10 @@
       %ul.nav.navbar-nav.navbar-right
         %li
           .btn.btn-primary.navbar-btn
-            %a{href: "/login"}
-              Get Started
+            / %a{href: "/users/sign_up"}
+            /   Get Started
+
+            = link_to 'Get started', new_user_session_path
       //login
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
@@ -23,7 +25,7 @@
             %li
               %a{href: "#"} Profile Edit
             %li
-              %a{href: "#"} Logout
+              = link_to 'Logout', root_path
         %li
           .btn.btn-primary.navbar-btn
             %a{href: "/proto/new"}
