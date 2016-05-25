@@ -5,11 +5,10 @@
         .col-md-12
           %h2 Register
           .user-name_image.row
-            = f.text_field :name, autofocus: true, placeholder: "Username", class: "user-name col-md-10"
+            .user-name.col-md-2
+              = f.text_field :name, autofocus: true, placeholder: "Username", class: "user-name col-md-10"
             .user-image.col-md-2
-              / %img{ id: "user_avatar", class: "media-object" }
               .media-object
-
                 %button.btn.btn-primary Add image
                 = f.text_field :avatar, autofocus: true, placeholder: "Add image"
 
@@ -29,4 +28,4 @@
             .user-name.col-md-12
               = f.text_field :work, autofocus: true, placeholder: "Works"
     .row.text-center.user-btn
-      =f.submit 'Save', class: "button btn btn-lg btn-primary btn-block", data: { disable_with: "送信中..." }
+      =f.submit 'Save', class: "button btn btn-lg btn-primary btn-block", data: { disable_with: "sending..." }
