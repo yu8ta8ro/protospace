@@ -1,31 +1,29 @@
-%form.container.user-new{action: ""}
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    .col-md-8.col-md-offset-2
-      %header.row.user-nav.row
-        .col-md-12
-          %h2 Register
-          .user-name_image.row
-            .user-name.col-md-2
-              = f.text_field :name, autofocus: true, placeholder: "Username", class: "user-name col-md-10"
-            .user-image.col-md-2
-              .media-object
-                %button.btn.btn-primary Add image
-                = f.text_field :avatar, autofocus: true, placeholder: "Add image"
-
-          = f.text_field :email, autofocus: true, placeholder: "E-Mail"
-          = f.password_field :password, autofocus: true, placeholder: "Password"
-        .col-md-12
-          %h4 Member of
-          .user-user-member.row
-            .user-name.col-md-12
-              = f.text_field :member, autofocus: true, placeholder: "member"
-          %h4 Profile
-          .user-user-profile.row
-            .user-name.col-md-12
-              = f.text_field :profile, autofocus: true, placehoder: "Profile"
-          %h4 Works
-          .user-name_image.row
-            .user-name.col-md-12
-              = f.text_field :work, autofocus: true, placeholder: "Works"
-    .row.text-center.user-btn
-      =f.submit 'Save', class: "button btn btn-lg btn-primary btn-block", data: { disable_with: "sending..." }
+%form.container.user-new
+  .col-md-8.col-md-offset-2
+    %header.row.user-nav.row
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      .col-md-12
+        %h2 Register
+        .user-name_image.row
+          .user-name.col-md-10
+            = f.text_field :name, placeholder: "Username"
+          .user-image.col-md-2
+            %button.btn.btn-primary Add image
+            = f.text_field :avatar
+        = f.text_field :email, placeholder: "E-Mail"
+        = f.password_field :password, placeholder: "Password"
+      .col-md-12
+        %h4 Member of
+        .user-user-member.row
+          .user-name.col-md-12
+            = f.text_field :member, placeholder: "Member"
+        %h4 Profile
+        .user-user-profile.row
+          .user-name.col-md-12
+            = f.text_field :profile, placeholder: "Profile"
+        %h4 Works
+        .user-name_image.row
+          .user-name.col-md-12
+            = f.text_field :work, placeholder: "Works"
+      .row.text-center.user-btn
+        = f.submit 'Submit', class: 'button btn btn-lg btn-primary btn-block'

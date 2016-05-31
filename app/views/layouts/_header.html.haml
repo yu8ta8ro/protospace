@@ -18,7 +18,9 @@
             %span.caret
           %ul.dropdown-menu{role: "menu"}
             %li
-              %a{href: "#"} Profile Edit
+              = link_to 'My Page', user_path(current_user)
+            %li
+              = link_to 'Profile Edit', edit_user_path(current_user)
             %li
               = link_to 'Logout', root_path
         %li

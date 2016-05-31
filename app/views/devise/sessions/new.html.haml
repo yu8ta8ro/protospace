@@ -1,14 +1,20 @@
 .container
   %form.form-signin
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      %h2.form-signin-heading Please sign in
-      %label.sr-only{for: "inputEmail"} Email address
-      = f.text_field :email, autofucus: true, placeholder: "Email address", class: "form-control"
-      %label.sr-only{for: "inputPassword"} Password
-      = f.text_field :password, autofucus: true, placeholder: "Password", class: "form-control"
-      .checkbox
-      = f.submit "Sign in", data: { disable_with: "sending..." }, class: "button btn btn-lg btn-primary btn-block"
-    .text-center
-      %p
-        Not a member?
-        = link_to 'Sign up now', new_user_registration_path
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    %h2.form-signin-heading Please sign in
+    %label.sr-only
+    / %input#inputEmail.form-control{autofocus: "", placeholder: "Email address", required: "", type: "email"}/
+    = f.text_field :email, placeholder: "Email adress", class: "input inputEmail form-control"
+    %label.sr-only
+    / %input#inputPassword.form-control{placeholder: "Password", required: "", type: "password"}/
+    = f.password_field :password, placeholder: "Password", class: "input inputPassword form-control"
+    .checkbox
+      %label
+        %input{type: "checkbox", value: "remember-me"}/
+        Remember me
+    / %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Sign in
+    = f.submit 'Submit', class: "button btn btn-lg btn-primary btn-block"
+  .text-center
+    %p
+      Not a member?
+      = link_to 'Sign up now', new_user_registration_path
