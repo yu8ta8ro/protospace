@@ -32,3 +32,6 @@ group :development do
 end
 # For devise
 gem 'devise'
+
+# For debug
+gem 'pry-rails'
