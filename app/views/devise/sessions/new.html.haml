@@ -1,6 +1,7 @@
 .container
   %form.form-signin
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = devise_error_messages!
     %h2.form-signin-heading Please sign in
     %label.sr-only
     = f.text_field :email, class: "input inputEmail form-control"
