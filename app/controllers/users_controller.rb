@@ -5,8 +5,13 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(update_params)
-    flash[:success] = "YOYOYO! Updated!"
-    redirect_to prototypes_path
+    if current_user.save
+      flash[:success] = "YOYOYO! Updated!"
+      redirect_to prototypes_path
+    else
+      flash[:danger] = "Update failed"
+      redirect_to edit_user_path
+    end
   end
 
   private
