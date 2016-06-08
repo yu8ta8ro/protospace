@@ -4,20 +4,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(update_params)
-    if current_user.save
-      flash[:success] = "YOYOYO! Updated!"
-      redirect_to prototypes_path
+    if current_user.update(update_params)
+      redirect_to prototypes_path, success: "YOYOYO! Updated!"
     else
-      flash[:danger] = "Update failed"
-      redirect_to edit_user_path
+      redirect_to edit_user_path, alert: "Update failed"
     end
   end
 
   private
 
   def update_params
-    params.require(:user).permit(:name, :email, :member, :profile, :works)
+    params.require(:user).permit(:name, :email, :member, :profile, :work)
   end
 
 end

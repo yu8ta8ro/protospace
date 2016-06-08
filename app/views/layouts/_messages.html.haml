@@ -1,5 +1,3 @@
 - flash.each do |key, value|
-  - key = "danger"  if key == "alert"
-  - key = "success"  if key == "success"
-  = content_tag :div, value, class: "alert alert-#{key}" do
+  = content_tag :div, class: "alert alert-#{key == 'notice' ? 'success' : 'alert'}" do
     = value
