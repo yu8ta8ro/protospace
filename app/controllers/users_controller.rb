@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if current_user.update(update_params)
       redirect_to prototypes_path, success: "YOYOYO! Updated!"
     else
-      redirect_to edit_user_path, alert: "Update failed"
+      render :edit
     end
   end
 
