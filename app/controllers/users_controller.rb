@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     if current_user.update(update_params)
       redirect_to prototypes_path, success: "YOYOYO! Updated!"
     else
+      flash.now[:alert] = "Some errors occured"
       render :edit
     end
   end
