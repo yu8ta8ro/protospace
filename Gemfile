@@ -35,3 +35,5 @@ gem 'devise'
 
 # For debug
 gem 'pry-rails'
+
+gem 'carrierwave'
