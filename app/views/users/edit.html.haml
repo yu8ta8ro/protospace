@@ -4,9 +4,11 @@
       %header.row.user-nav.row
         - if current_user.errors.any?
           #error_explanation
-            %ul
-              - current_user.errors.full_messages.each do |msg|
-                %li = msg
+            .alert.alert-danger
+              %ul
+                - current_user.errors.full_messages.each do |msg|
+                  %li
+                    = msg
         .col-md-12
           %h2 Edit Profile
           .user-name_image.row
