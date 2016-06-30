@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   validates :name, :profile, presence: true
 
+  has_many :prototypes
 end
