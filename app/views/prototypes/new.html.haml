@@ -7,18 +7,20 @@
       .row
         .col-md-12
           .cover-image-upload
-            / = f.text_field
+            = f.fields_for :prototype_image do |main_image|
+              = main_image.file_field :content
+              = main_image.hidden_field :content_type, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
-            %li.list-group-item.col-md-4
-              .image-upload
-                / = f.text_field
-            %li.list-group-item.col-md-4
-              .image-upload
-            / = f.text_field
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
+            - 2.times do
+              = f.fields_for :prototype_image do |sub_image|
+                %li.list-group-item.col-md-4.appear_form
+                  .image-upload.js-preview
+                    = sub_image.file_field :content
+                    = sub_image.hidden_field :content_type, value: :sub
+        %li.list-group-item.col-md-4
+          .image-upload-plus
+            %span +
       .row.proto-description
         .col-md-12
           = f.text_field :catch_copy, placeholder: "Catch Copy"
@@ -35,3 +37,16 @@
               / = f.text_field
       .row.text-center.proto-btn
         = f.submit :submit, placeholder: "Publish", class:"button btn.btn-lg btn-primary btn-block"
+
+
+/ = f.fields_for :prototype_images do |image|
+/   = image.label :zipcode, "郵便番号"
+/   = addresses_form.text_field :zipcode
+/   %br/
+/   = addresses_form.label :city, "都道府県"
+/   = addresses_form.text_field :city
+/   %br/
+/   = addresses_form.label :street, "市町村番"
+/   = addresses_form.text_field :street
+/   %br/
+/   = addresses_form.label :tel, "電話番号"

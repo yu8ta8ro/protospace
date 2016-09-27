@@ -15,23 +15,7 @@
 .container.proto-list
   .row
     - @prototypes.each do |prototype|
-      .col-sm-4.col-md-3.proto-content
-        .thumbnail
-          %a{href: "/prototypes/show"}
-            = image_tag("sample.png")
-            .caption
-              %h3
-                #{prototype.title}
-              .proto-meta
-                .proto-user
-                  %a{href: "#"} by #{prototype.user.name}
-                .proto-posted
-                  #{prototype.created_at}
-              %ul.proto-tag-list.list-inline
-                %li
-                  %a{href: "#", class: "btn btn-default"} iPad
-                %li
-                  %a{href: "#", class: "btn btn-default"} wireframe
+      = render partial: "prototype", locals: { prototype: prototype }
 
 .text-center
   %ul.pagination
