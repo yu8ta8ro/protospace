@@ -6,16 +6,22 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
+    @prototype.prototype_images.build
   end
 
   def create
-    Prototype.create(catch_copy: create_params[:catch_copy], title: create_params[:title], concept: create_params[:concept], user_id: current_user.id)
-    redirect_to root_path
+    @prototype = Prototype.new(create_params)
+
+    if @prototype.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
   def create_params
-    params.require(:prototype).permit(:catch_copy, :title, :concept)
+    params.require(:prototype).permit(:catch_copy, :title, :concept, :user_id, prototype_images_attributes: [:id, :content, :content_type, :prototype_id])
   end
 
 end

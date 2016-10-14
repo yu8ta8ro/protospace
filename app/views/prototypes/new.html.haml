@@ -1,19 +1,27 @@
 .container.proto-new
   = form_for(@prototype) do |f|
     .col-md-8.col-md-offset-2
+      - if @prototype.errors.any?
+        #error_explanation.alert.alert-danger
+          %h2
+            = pluralize(@prototype.errors.count, "error")
+            prohibited this prototype from being saved:
+          %ul
+            - @prototype.errors.full_messages.each do |message|
+              %li= message
       %header.row.user-nav.row
         .col-md-12
           = f.text_field :title, placeholder: "Title"
       .row
         .col-md-12
           .cover-image-upload
-            = f.fields_for :prototype_image do |main_image|
+            = f.fields_for :prototype_images do |main_image|
               = main_image.file_field :content
               = main_image.hidden_field :content_type, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
             - 2.times do
-              = f.fields_for :prototype_image do |sub_image|
+              = f.fields_for :prototype_images do |sub_image|
                 %li.list-group-item.col-md-4.appear_form
                   .image-upload.js-preview
                     = sub_image.file_field :content
@@ -30,23 +38,7 @@
           %h4 Tag List
           .row
             .col-md-3
-              / = f.text_field
             .col-md-3
-              / = f.text_field
             .col-md-3
-              / = f.text_field
       .row.text-center.proto-btn
         = f.submit :submit, placeholder: "Publish", class:"button btn.btn-lg btn-primary btn-block"
-
-
-/ = f.fields_for :prototype_images do |image|
-/   = image.label :zipcode, "郵便番号"
-/   = addresses_form.text_field :zipcode
-/   %br/
-/   = addresses_form.label :city, "都道府県"
-/   = addresses_form.text_field :city
-/   %br/
-/   = addresses_form.label :street, "市町村番"
-/   = addresses_form.text_field :street
-/   %br/
-/   = addresses_form.label :tel, "電話番号"
