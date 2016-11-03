@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
 
-  before_action :prototype_id, only: [:edit, :update]
+  before_action :prototype_id, only: [:edit, :update, :destroy]
 
   def index
     @prototypes = Prototype.order('id DESC')
@@ -32,6 +32,13 @@ class PrototypesController < ApplicationController
     end
   end
 
+  def destroy
+    if @prototype.destroy
+      redirect_to root_path, notice: "Successfully deleted!"
+    else
+      render :index
+    end
+  end
 
   private
   def create_params
