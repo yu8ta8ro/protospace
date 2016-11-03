@@ -18,4 +18,5 @@
 
           %li
             = link_to "Edit", edit_prototype_path(prototype), class: "btn btn-default"
-            / %a{href: "/prototypes/#{prototype.id}/edit", class: ""} Edit
+          %li
+            = link_to "Delete", prototype_path(prototype), class: "btn btn-default", method: :delete
