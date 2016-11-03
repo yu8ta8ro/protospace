@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
 
-  before_action :prototype_id, only: :edit
+  before_action :prototype_id, only: [:edit, :update]
 
   def index
     @prototypes = Prototype.order('id DESC')
@@ -22,7 +22,7 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-  end
+   end
 
   def update
     if @prototype.user_id == current_user.id
