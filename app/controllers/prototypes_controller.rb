@@ -22,14 +22,14 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-   end
+  end
 
   def update
-    if @prototype.user_id == current_user.id
-      @prototype.update(create_params)
+    if @prototype.update(create_params)
+      redirect_to root_path, notice: "YOYOYO! Updated!"
+    else
+      render :edit
     end
-
-    redirect_to root_path, notice: "YOYOYO! Updated!"
   end
 
 

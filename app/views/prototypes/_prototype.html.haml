@@ -17,4 +17,5 @@
             %a{href: "#", class: "btn btn-default"} wireframe}
 
           %li
-            %a{href: "/prototypes/#{prototype.id}/edit", class: "btn btn-default"} Edit
+            = link_to "Edit", edit_prototype_path(prototype), class: "btn btn-default"
+            / %a{href: "/prototypes/#{prototype.id}/edit", class: ""} Edit
