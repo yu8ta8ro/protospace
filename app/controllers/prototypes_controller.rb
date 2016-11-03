@@ -33,11 +33,8 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    if @prototype.destroy
-      redirect_to root_path, notice: "Successfully deleted!"
-    else
-      render :index
-    end
+    @prototype.destroy
+    redirect_to root_path, notice: "Successfully deleted!"
   end
 
   private
