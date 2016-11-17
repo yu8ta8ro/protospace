@@ -8,15 +8,15 @@
           %h4#top-aligned-media.media-heading
             = @prototype.title
           .proto-user
-            / = link_to "@prototype.user.name", user_path(@prototype.user)
+            = @prototype.user.name
             %span.degree we-b inc. Designer
 
-    .col-md-6.text-right
+    .col-md-6.text-right#like
       = render partial: 'likes/like', locals: {prototype: @prototype, like: @like}
 
   .row
     .col-md-9
-      = image_tag( @prototype.prototype_images.main, class: "img-responsive")
+      = image_tag(@prototype.prototype_images.main, class: "img-responsive")
     .col-md-3
       %ul.proto-sub-list.list-group
       - @prototype.prototype_images.sub.each do |sub|

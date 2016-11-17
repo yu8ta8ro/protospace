@@ -1,1 +1,1 @@
-$("#like").html("<%= j(render "likes/likes") %>");
+$('#like').html("<%= j(render partial: 'like', locals: { prototype: @prototype, likes: @likes }) %>");

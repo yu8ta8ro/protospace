@@ -1,12 +1,12 @@
 .col-sm-4.col-md-3.proto-content
   .thumbnail
-    = link_to image_tag("sample.png"), prototype_path(prototype.id)
+    = link_to image_tag(prototype.prototype_images.main_image), prototype_path(prototype.id)
     .caption
       %h3
         #{prototype.title}
       .proto-meta
         .proto-user
-          / %a{href: "#"} by #{prototype.user.name}
+          %a{href: "#"} by #{prototype.user.name}
         .proto-posted
           #{prototype.created_at}
       %ul.proto-tag-list.list-inline
