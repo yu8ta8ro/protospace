@@ -4,6 +4,7 @@ class Prototype < ActiveRecord::Base
   accepts_nested_attributes_for :prototype_images
   has_one :main_image, -> { where(content_type: 0) }, class_name: "PrototypeImage"
   has_many :likes, dependent: :destroy
+  has_many :comments
 
   def like_user(user_id)
    likes.find_by(user_id: user_id)
