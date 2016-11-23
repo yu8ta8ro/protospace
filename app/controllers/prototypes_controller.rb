@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
 
-  before_action :prototype_id, only: [:edit, :update, :destroy]
+  before_action :prototype_id, only: [:edit, :update, :destroy, :show]
 
   def index
     @prototypes = Prototype.order('id DESC')
@@ -12,13 +12,17 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototype = Prototype.new(create_params)
+    @prototype = current_user.prototypes.new(create_params)
 
     if @prototype.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @like = Like.find_by(user_id: current_user.id, prototype_id: params[:id]) if user_signed_in?
   end
 
   def edit
