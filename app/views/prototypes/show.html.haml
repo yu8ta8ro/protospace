@@ -54,7 +54,7 @@
           .row
             .form-group.col-md-10
               .form-control{placeholder: "Your comments", rows: "3"}
-                = f.text_field :text, placeholder: "Your scomments", row: "3", id: "comment_field"
+                = f.text_field :text, placeholder: "Your scomments", row: "3", id: "comment_field", required: true
                 = f.hidden_field :user_id
             .form-group.col-md-2
               .btn.btn-primary
