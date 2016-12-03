@@ -23,6 +23,8 @@ class PrototypesController < ApplicationController
 
   def show
     @like = Like.find_by(user_id: current_user.id, prototype_id: params[:id]) if user_signed_in?
+    @comment = Comment.new
+    @comments = @prototype.comments
   end
 
   def edit
