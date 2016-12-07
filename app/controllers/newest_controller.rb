@@ -1,5 +1,6 @@
 class NewestController < ApplicationController
   def index
-    @prototype = Prototype.order('created_at DESC')
+    @prototypes = Prototype.order('created_at DESC').page(params[:page]).per(8)
+    render 'prototypes/index'
   end
 end
