@@ -37,3 +37,5 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'carrierwave'
+
+gem 'acts-as-taggable-on'
