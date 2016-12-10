@@ -17,14 +17,17 @@
           .cover-image-upload
             = f.fields_for :prototype_images do |main_image|
               = main_image.file_field :content
+              - if @prototype.prototype_images.main.first.image.present?
+                = image_tag (@prototype.prototype_images.main.first.image), id: "image_preview0", class: "image_preview"
               = main_image.hidden_field :content_type, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
             - 2.times do
-              = f.fields_for :prototype_images do |sub_image|
+              - @prototype.prototype_images.sub.each.with_index(1) do |sub , num|
                 %li.list-group-item.col-md-4.appear_form
                   .image-upload.js-preview
                     = sub_image.file_field :content
+                    = image_tag (sub.image),id: "image_preview#{num}", class: "image_preview"
                     = sub_image.hidden_field :content_type, value: :sub
         %li.list-group-item.col-md-4
           .image-upload-plus

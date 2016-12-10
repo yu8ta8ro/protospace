@@ -12,21 +12,28 @@
       %header.row.user-nav.row
         .col-md-12
           = f.text_field :title, placeholder: "Title"
-      .row
+      .rows
         .col-md-12
           .cover-image-upload
-            = f.fields_for :prototype_images do |main_image|
-              = main_image.file_field :content
-              = main_image.hidden_field :content_type, value: :main
+            = f.fields_for :prototype_images do |fi|
+              = fi.file_field :content
+              = image_tag (""), id: "image_preview0",class: "image_preview"
+              = fi.hidden_field :content_type, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
             - 2.times do
-              = f.fields_for :prototype_images do |sub_image|
+              = f.fields_for :prototype_images do |fi|
                 %li.list-group-item.col-md-4.appear_form
                   .image-upload.js-preview
-                    = sub_image.file_field :content
-                    = sub_image.hidden_field :content_type, value: :sub
+                    = fi.file_field :content
+                    = image_tag (""), id: "image_preview1",class: "image_preview"
+                    = fi.hidden_field :content_type, value: :sub
         %li.list-group-item.col-md-4
+          .image-upload.hidden
+            = f.fields_for :prototype_images do |fi|
+              = fi.file_field :image
+              = image_tag (""), id: "image_preview2", class: "image_preview"
+              = fi.hidden_field :content_type, value: :sub
           .image-upload-plus
             %span +
       .row.proto-description
