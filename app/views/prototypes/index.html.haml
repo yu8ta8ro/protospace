@@ -9,8 +9,8 @@
         %li.active{role: "presentation"}
           %a{href: "#"} Popular PROTO
         %li{role: "presentation"}
-          = link_to new_prototype_path, "Newest PROTO"
-      %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+          = link_to "Newest PROTO", new_prototype_path
+      = button_to "ViewTags", tags_path, class: "btn btn-default col-lg-1", method: :get
 
 .container.proto-list
   .row

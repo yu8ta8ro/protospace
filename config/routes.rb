@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
   end
+  resources :tags, param: :tag_name, only: [:index, :show]
 
 end
