@@ -37,3 +37,5 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'carrierwave'
+
+gem 'kaminari'
