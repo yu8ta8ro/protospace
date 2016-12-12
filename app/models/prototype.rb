@@ -13,4 +13,5 @@ class Prototype < ActiveRecord::Base
   end
 
   validates :title, :concept, :catch_copy, :prototype_images, presence: true
+  
 end
