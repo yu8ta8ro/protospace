@@ -1,4 +1,14 @@
-- @tags.each do |tag|
-  = link_to "#{tag.name}", tag_path(tag.id)
-  = link_to tag_path(tag.id) do
-    %i "#{tag.taggings.count}" Projects
+/ - @tags.each do |tag|
+/   = link_to "#{tag.name}", tag_path(tag.id)
+/   = link_to tag_path(tag.id) do
+/     %i "#{tag.taggings.count}" Projects
+
+.container
+  .row
+    %h2
+      Tags list
+    %ul
+      - @tags.each do |tag|
+        %li.col-md-4{:style => "list-style: none;"}
+
+          = link_to "#{tag.name}", tag_path(tag.name), class: "btn btn-default"
