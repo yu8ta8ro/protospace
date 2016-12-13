@@ -1,0 +1,7 @@
+- @prototype.prototype_images.sub.each.with_index(1) do |word, index|
+  %li.list-group-item.col-md-4
+    .image-upload
+      %div{id: "js-new_prototype_image#{index}"}= image_tag("#{word.content}")
+      = f.fields_for :prototype_images, @prototype.prototype_images.sub[index - 1] do |image|
+        = image.file_field :content, id: "js-prototype_images_attributes_#{index}_image"
+        = image.hidden_field :content_type, value: :sub
