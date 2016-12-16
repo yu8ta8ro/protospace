@@ -3,7 +3,7 @@ class PrototypesController < ApplicationController
   before_action :prototype_id, only: [:edit, :update, :destroy, :show]
 
   def index
-    @prototypes = Prototype.order('id DESC')
+    @prototypes = Prototype.order('id DESC').page(params[:page]).per(8)
   end
 
   def new
@@ -46,7 +46,7 @@ class PrototypesController < ApplicationController
   private
   def create_params
     params.require(:prototype).permit(:catch_copy, :title, :concept, :user_id,
-      prototype_images_attributes: [:id, :content, :content_type, :prototype_id])
+      prototype_images_attributes: [:id, :content, :content_type, :prototype_id]).merge(tag_list: params[:prototype][:tag])
   end
 
   def prototype_id

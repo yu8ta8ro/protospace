@@ -5,12 +5,13 @@ class Prototype < ActiveRecord::Base
   has_one :main_image, -> { where(content_type: 0) }, class_name: "PrototypeImage"
   has_many :likes, dependent: :destroy
   has_many :comments
+  acts_as_taggable
+  acts_as_ordered_taggable_on :prototypes
 
   def like_user(user_id)
    likes.find_by(user_id: user_id)
   end
 
   validates :title, :concept, :catch_copy, :prototype_images, presence: true
-
-
+  
 end
