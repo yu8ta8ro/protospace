@@ -1,0 +1,32 @@
+.container.proto-new
+  = form_for (@prototype), html: {id: 'prototype'} do |f|
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          = f.text_field :title, placeholder: "title"
+      .row
+        .col-md-12
+          .cover-image-upload
+            #js-new_prototype_image0
+            = f.fields_for :prototype_images do |image|
+              = image.file_field :content, id: "js-prototype_images_attributes_0_image"
+              = image.hidden_field :content_type, value: :main
+        .col-md-12
+          %ul.proto-sub-list.list-grouap
+            = render "post_#{action}_image", f: f
+          %li.list-group-item.col-md-4
+            .image-upload-plus
+              %span +
+          .row.proto-description
+            .col-md-12
+              = f.text_field :catch_copy, placeholder:"Catch Copy"
+            .col-md-12
+              = f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
+            .col-md-12
+              %h4 Tag List
+              .row
+                - 3.times do |i|
+                  .col-md-3
+                    = text_field_tag "product[tag][]", '', placeholder: "Tag#{i + 1}"
+          .row.text-center.proto-btn
+            = f.submit "publish", class: "btn btn-lg btn-primary btn-block", data: { disable_with: 'Sending...' }

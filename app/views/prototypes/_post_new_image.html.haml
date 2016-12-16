@@ -1,0 +1,7 @@
+- 2.times do |i|
+  %li.list-group-item.col-md-4
+    .image-upload
+      %div{id: "js-new_prototype_image#{i + 1}"}
+      = f.fields_for :prototype_images do |image|
+        = image.file_field :content, id: "js-prototype_images_attributes_#{i + 1}_image"
+        = image.hidden_field :content, value: :sub

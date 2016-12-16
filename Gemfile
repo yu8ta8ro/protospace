@@ -39,6 +39,8 @@ gem 'pry-rails'
 gem 'carrierwave'
 
 
+gem 'jquery-turbolinks'
+
 gem 'acts-as-taggable-on'
 
 gem 'kaminari'
